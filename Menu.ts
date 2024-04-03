@@ -1,17 +1,11 @@
 import readlinesync = require("readline-sync");
-<<<<<<< Updated upstream
-=======
 import { AcessorioController } from "./src/controller/AcessorioController";
 import { Bone } from "./src/model/Bone";
 import { Touca } from "./src/model/Touca";
->>>>>>> Stashed changes
 
 export function main () {
     
     let opcao: number;
-<<<<<<< Updated upstream
-    
-=======
 
     let id, tipo, preco: number;
     let nome, bone, touca: string;
@@ -25,7 +19,6 @@ export function main () {
     
     acessorioController.listarTodas();
 
->>>>>>> Stashed changes
     while (true) {
 
         console.log("----------------------------------------------------------------------------------------------------");
@@ -51,25 +44,6 @@ export function main () {
 
         switch (opcao){
             case 1: console.log("Cadastrar produto");
-<<<<<<< Updated upstream
-        
-                keyPress()
-                break;
-            case 2: console.log("Listar todos os produtos");
-                
-                keyPress()
-                break;
-            case 3: console.log("Listar produto pelo ID");
-    
-                keyPress()
-                break;
-            case 4: console.log("Atualizar produtos");
-                
-                keyPress()
-                break;
-            case 5: console.log("Apagar Produtos");
-            
-=======
                     console.log("Digite o nome do produto: ")
                     nome = readlinesync.question("");
 
@@ -138,7 +112,6 @@ export function main () {
                     console.log("Digite o ID  do produto que deseja apagar: ");
                     id = readlinesync.questionInt("");
                     acessorioController.deletar(id);
->>>>>>> Stashed changes
                 keyPress()
                 break;
             default: console.log("Opção inválida")
