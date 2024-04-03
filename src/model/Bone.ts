@@ -19,7 +19,6 @@ export class Bone extends Acessorios {
 
     public visualizar(): void {
         super.visualizar();
-        console.log("Limite é: " + this._bone);
     }
 	
 	}
