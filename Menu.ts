@@ -1,9 +1,31 @@
 import readlinesync = require("readline-sync");
+<<<<<<< Updated upstream
+=======
+import { AcessorioController } from "./src/controller/AcessorioController";
+import { Bone } from "./src/model/Bone";
+import { Touca } from "./src/model/Touca";
+>>>>>>> Stashed changes
 
 export function main () {
     
     let opcao: number;
+<<<<<<< Updated upstream
     
+=======
+
+    let id, tipo, preco: number;
+    let nome, bone, touca: string;
+    let tipoAcessorio = ['Bone', 'Touca'];
+
+    const acessorioController: AcessorioController = new AcessorioController();
+
+    acessorioController.cadastrar(new Bone(acessorioController.gerarId(), "Bone vermelho", 1, 60, "bone"));
+
+    acessorioController.cadastrar(new Touca(acessorioController.gerarId(), "Touca azul", 2, 60, "touca"));
+    
+    acessorioController.listarTodas();
+
+>>>>>>> Stashed changes
     while (true) {
 
         console.log("----------------------------------------------------------------------------------------------------");
@@ -29,6 +51,7 @@ export function main () {
 
         switch (opcao){
             case 1: console.log("Cadastrar produto");
+<<<<<<< Updated upstream
         
                 keyPress()
                 break;
@@ -46,6 +69,76 @@ export function main () {
                 break;
             case 5: console.log("Apagar Produtos");
             
+=======
+                    console.log("Digite o nome do produto: ")
+                    nome = readlinesync.question("");
+
+                    console.log("Digite o tipo de produto: ")
+                    tipo = readlinesync.keyInSelect(tipoAcessorio, "", {cancel: false}) + 1;
+
+                    console.log("Digite o preço do produto: ")
+                    preco = readlinesync.questionFloat("");
+
+                    switch(tipo){
+                        case 1: 
+                            bone = readlinesync.question("");
+                            acessorioController.cadastrar(new Bone(acessorioController.gerarId(), nome, tipo, preco, bone));
+                            break;
+                        case 2:
+                            touca = readlinesync.question("");
+                            acessorioController.cadastrar(new Touca(acessorioController.gerarId(), nome, tipo, preco, touca));
+                            break;
+                    }
+                keyPress()
+                break;
+            case 2: console.log("Listar todos os produtos");
+                    acessorioController.listarTodas();
+                keyPress()
+                break;
+            case 3: console.log("Listar produto pelo ID");
+                    console.log("Digite o ID  do produto: ");
+                    id = readlinesync.questionInt("");
+                    acessorioController.listarPorId(id);
+                keyPress()
+                break;
+            case 4: console.log("Atualizar produtos");
+                    console.log("Digite o ID  do produto: ");
+                    id = readlinesync.questionInt("");
+                    let buscarAcessorio = acessorioController.buscarNoArray(id)
+                    
+                
+                    if (buscarAcessorio != null) {
+                        console.log("Digite o nome do produto: ")
+                        nome = readlinesync.question("");
+
+                        tipo = buscarAcessorio.tipo;
+
+                        console.log("Digite o preço do produto: ")
+                        preco = readlinesync.questionFloat("");
+
+                        switch (tipo) {
+                            case 1:
+                                console.log("Digite o novo nome do produto: ");
+                                bone = readlinesync.question("");
+                                acessorioController.cadastrar(new Bone(acessorioController.gerarId(), nome, tipo, preco, bone));
+                                break;
+                            case 2: 
+                                console.log("Digite o novo nome do produto: ");
+                                touca = readlinesync.question("");
+                                acessorioController.cadastrar(new Touca(acessorioController.gerarId(), nome, tipo, preco, touca));
+                                break;
+                        }
+                    } else {
+                        console.log("Produto não encontrado!")
+                    }
+
+                keyPress()
+                break;
+            case 5: console.log("Apagar Produtos");
+                    console.log("Digite o ID  do produto que deseja apagar: ");
+                    id = readlinesync.questionInt("");
+                    acessorioController.deletar(id);
+>>>>>>> Stashed changes
                 keyPress()
                 break;
             default: console.log("Opção inválida")
